@@ -1,0 +1,15 @@
+.homePage {
+  min-height: 100vh;
+  background: #181a1c;
+  color: #fff;
+}
+
+.rows {
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .rows {
+    padding-top: 30px;
+  }
+}

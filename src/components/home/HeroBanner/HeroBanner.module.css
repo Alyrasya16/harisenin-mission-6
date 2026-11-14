@@ -1,0 +1,160 @@
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 225px;
+  align-items: flex-end;
+  padding: 24px 20px 34px;
+  background-color: #181a1c;
+  background-image:
+    linear-gradient(0deg, #181a1c 0%, rgba(24, 26, 28, 0.68) 34%, rgba(24, 26, 28, 0.05) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 80%),
+    var(--hero-image);
+  background-position: center 38%;
+  background-size: cover;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 560px);
+}
+
+.content h1 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.content p {
+  display: -webkit-box;
+  overflow: hidden;
+  max-width: 500px;
+  margin: 0 0 16px;
+  color: #f0f0f0;
+  font-size: 12px;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.playButton,
+.moreButton {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 24px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.playButton {
+  background: #0f1e93;
+}
+
+.playButton:hover {
+  background: #192dc2;
+}
+
+.moreButton {
+  background: #22282a;
+}
+
+.moreButton:hover {
+  background: #323a3d;
+}
+
+.ageRating {
+  display: inline-flex;
+  min-height: 25px;
+  align-items: center;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 5px;
+  background: rgba(24, 26, 28, 0.45);
+  color: #fff;
+  font-size: 11px;
+}
+
+.soundButton {
+  position: absolute;
+  right: 20px;
+  bottom: 36px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  background: rgba(24, 26, 28, 0.36);
+  color: #fff;
+  cursor: pointer;
+}
+
+.playButton:focus-visible,
+.moreButton:focus-visible,
+.soundButton:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    height: 587px;
+    min-height: 587px;
+    padding: 48px 5.55% 78px;
+    background-position: center 34%;
+  }
+
+  .content {
+    width: min(55%, 660px);
+  }
+
+  .content h1 {
+    margin-bottom: 16px;
+    font-size: 48px;
+  }
+
+  .content p {
+    margin-bottom: 24px;
+    font-size: 16px;
+    -webkit-line-clamp: 3;
+  }
+
+  .actions {
+    gap: 12px;
+  }
+
+  .playButton,
+  .moreButton {
+    min-height: 44px;
+    gap: 8px;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+
+  .ageRating {
+    min-height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  .soundButton {
+    right: 5.55%;
+    bottom: 80px;
+    width: 40px;
+    height: 40px;
+  }
+}

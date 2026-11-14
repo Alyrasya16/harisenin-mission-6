@@ -1,0 +1,103 @@
+.row {
+  position: relative;
+  margin: 0 0 30px;
+  padding: 0 20px;
+}
+
+.heading {
+  display: flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.heading h2 {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.controls {
+  display: none;
+}
+
+.list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 155px 0 22px;
+  margin: -155px 0 -12px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .row {
+    margin-bottom: 42px;
+    padding: 0 5.55%;
+  }
+
+  .heading {
+    min-height: 34px;
+    margin-bottom: 16px;
+  }
+
+  .heading h2 {
+    font-size: 24px;
+  }
+
+  .controls {
+    display: flex;
+    position: absolute;
+    z-index: 8;
+    right: calc(5.55% - 24px);
+    left: calc(5.55% - 24px);
+    justify-content: space-between;
+    pointer-events: none;
+    transform: translateY(-50%);
+  }
+
+  .landscapeRow .controls {
+    top: calc(34px + 16px + 81px);
+  }
+
+  .portraitRow .controls {
+    top: calc(34px + 16px + 182.5px);
+  }
+
+  .controls button {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #2f3334;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: background-color 150ms ease;
+  }
+
+  .controls button:hover {
+    background: #464b4d;
+  }
+
+  .list {
+    gap: 16px;
+    padding-top: 175px;
+    padding-bottom: 28px;
+    margin-top: -175px;
+    margin-bottom: -12px;
+  }
+}

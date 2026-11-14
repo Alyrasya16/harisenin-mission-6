@@ -1,0 +1,74 @@
+.content {
+  display: grid;
+  gap: 24px;
+}
+
+.form {
+  display: grid;
+  gap: 20px;
+}
+
+.fields {
+  display: grid;
+  gap: 16px;
+}
+
+.helperRow {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.helperLink {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.helperLink:hover {
+  text-decoration: underline;
+}
+
+.error {
+  margin: -8px 0 0;
+  color: #ffaaa3;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.divider::before,
+.divider::after {
+  height: 1px;
+  flex: 1;
+  background: var(--border-color);
+  content: "";
+}
+
+@media (min-width: 768px) {
+  .content {
+    gap: 32px;
+  }
+
+  .form {
+    gap: 24px;
+  }
+
+  .helperRow {
+    font-size: 14px;
+    text-align: left;
+  }
+}

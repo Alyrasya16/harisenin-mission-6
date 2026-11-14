@@ -1,0 +1,148 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px 20px 36px;
+  border-top: 1px solid rgba(231, 227, 252, 0.23);
+  color: #c1c2c4;
+}
+
+.brand img {
+  width: 96px;
+  height: auto;
+}
+
+.brand p {
+  margin: 8px 0 0;
+  font-size: 12px;
+}
+
+.footerSection {
+  min-width: 0;
+  border-bottom: 1px solid rgba(231, 227, 252, 0.23);
+}
+
+.sectionHeading {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sectionHeading svg {
+  transition: transform 160ms ease;
+}
+
+.expanded {
+  transform: rotate(90deg);
+}
+
+.genreGrid,
+.helpList {
+  display: none;
+  margin: 0;
+  padding: 2px 0 12px;
+  list-style: none;
+}
+
+.genreGrid.open,
+.helpList.open {
+  display: grid;
+}
+
+.genreGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 12px;
+}
+
+.genreGrid ul {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.helpList {
+  gap: 8px;
+}
+
+.genreGrid a,
+.helpList a {
+  color: #c1c2c4;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.genreGrid a:hover,
+.helpList a:hover {
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr) minmax(0, 0.8fr);
+    gap: clamp(20px, 3.2vw, 40px);
+    align-items: start;
+    padding: 48px 5.55% 56px;
+  }
+
+  .brand img {
+    width: 120px;
+  }
+
+  .brand p {
+    font-size: 14px;
+  }
+
+  .footerSection {
+    border: 0;
+  }
+
+  .sectionHeading {
+    margin-bottom: 16px;
+    padding: 0;
+    font-size: 16px;
+    cursor: default;
+  }
+
+  .sectionHeading svg {
+    display: none;
+  }
+
+  .genreGrid,
+  .helpList,
+  .genreGrid.open,
+  .helpList.open {
+    display: grid;
+    padding: 0;
+  }
+
+  .genreGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px clamp(12px, 1.5vw, 20px);
+  }
+
+  .genreGrid ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .helpList {
+    gap: 12px;
+  }
+
+  .genreGrid a,
+  .helpList a {
+    font-size: 14px;
+  }
+}
