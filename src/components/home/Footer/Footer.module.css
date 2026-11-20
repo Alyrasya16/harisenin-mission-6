@@ -1,20 +1,20 @@
 .footer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 28px 20px 36px;
+  gap: clamp(16px, 5vw, 20px);
+  padding: clamp(24px, 7vw, 28px) clamp(16px, 5vw, 20px) clamp(30px, 9vw, 36px);
   border-top: 1px solid rgba(231, 227, 252, 0.23);
   color: #c1c2c4;
 }
 
 .brand img {
-  width: 96px;
+  width: clamp(80px, 24vw, 96px);
   height: auto;
 }
 
 .brand p {
   margin: 8px 0 0;
-  font-size: 12px;
+  font-size: clamp(11px, 3vw, 12px);
 }
 
 .footerSection {
@@ -27,17 +27,19 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 0;
+  padding: clamp(6px, 1.75vw, 7px) 0;
   border: 0;
   background: transparent;
   color: #fff;
-  font-size: 14px;
+  font-size: clamp(12px, 3.5vw, 14px);
   font-weight: 700;
   text-align: left;
   cursor: pointer;
 }
 
 .sectionHeading svg {
+  width: clamp(16px, 5vw, 20px);
+  height: clamp(16px, 5vw, 20px);
   transition: transform 160ms ease;
 }
 
@@ -49,7 +51,7 @@
 .helpList {
   display: none;
   margin: 0;
-  padding: 2px 0 12px;
+  padding: 2px 0 clamp(10px, 3vw, 12px);
   list-style: none;
 }
 
@@ -60,7 +62,7 @@
 
 .genreGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 12px;
+  gap: clamp(6px, 2vw, 8px) clamp(10px, 3vw, 12px);
 }
 
 .genreGrid ul {
@@ -71,13 +73,13 @@
 }
 
 .helpList {
-  gap: 8px;
+  gap: clamp(6px, 2vw, 8px);
 }
 
 .genreGrid a,
 .helpList a {
   color: #c1c2c4;
-  font-size: 12px;
+  font-size: clamp(11px, 3vw, 12px);
   text-decoration: none;
 }
 
@@ -92,15 +94,15 @@
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr) minmax(0, 0.8fr);
     gap: clamp(20px, 3.2vw, 40px);
     align-items: start;
-    padding: 48px 5.55% 56px;
+    padding: clamp(32px, 3.5vw, 48px) 5.55% clamp(40px, 4.1vw, 56px);
   }
 
   .brand img {
-    width: 120px;
+    width: clamp(96px, 8.8vw, 120px);
   }
 
   .brand p {
-    font-size: 14px;
+    font-size: clamp(12px, 1.03vw, 14px);
   }
 
   .footerSection {
@@ -108,9 +110,9 @@
   }
 
   .sectionHeading {
-    margin-bottom: 16px;
+    margin-bottom: clamp(12px, 1.17vw, 16px);
     padding: 0;
-    font-size: 16px;
+    font-size: clamp(13px, 1.17vw, 16px);
     cursor: default;
   }
 
@@ -128,13 +130,13 @@
 
   .genreGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px clamp(12px, 1.5vw, 20px);
+    gap: clamp(8px, 0.9vw, 12px) clamp(12px, 1.5vw, 20px);
   }
 
   .genreGrid ul {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: clamp(8px, 0.9vw, 12px);
   }
 
   .helpList {
@@ -143,6 +145,6 @@
 
   .genreGrid a,
   .helpList a {
-    font-size: 14px;
+    font-size: clamp(12px, 1.03vw, 14px);
   }
 }

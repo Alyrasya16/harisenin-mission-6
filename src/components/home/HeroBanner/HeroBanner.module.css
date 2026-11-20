@@ -41,21 +41,21 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: clamp(6px, 2vw, 8px);
 }
 
 .playButton,
 .moreButton {
   display: inline-flex;
-  min-height: 32px;
+  min-height: clamp(30px, 8vw, 32px);
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  padding: 0 12px;
+  gap: clamp(4px, 1.25vw, 5px);
+  padding: 0 clamp(10px, 3vw, 12px);
   border: 0;
   border-radius: 24px;
   color: #fff;
-  font-size: 12px;
+  font-size: clamp(11px, 3vw, 12px);
   font-weight: 700;
   cursor: pointer;
 }
@@ -78,23 +78,23 @@
 
 .ageRating {
   display: inline-flex;
-  min-height: 25px;
+  min-height: clamp(22px, 6.25vw, 25px);
   align-items: center;
-  padding: 0 8px;
+  padding: 0 clamp(6px, 2vw, 8px);
   border: 1px solid rgba(255, 255, 255, 0.55);
   border-radius: 5px;
   background: rgba(24, 26, 28, 0.45);
   color: #fff;
-  font-size: 11px;
+  font-size: clamp(10px, 2.75vw, 11px);
 }
 
 .soundButton {
   position: absolute;
-  right: 20px;
-  bottom: 36px;
+  right: clamp(14px, 5vw, 20px);
+  bottom: clamp(28px, 9vw, 36px);
   display: grid;
-  width: 32px;
-  height: 32px;
+  width: clamp(28px, 8vw, 32px);
+  height: clamp(28px, 8vw, 32px);
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 50%;
@@ -134,27 +134,33 @@
   }
 
   .actions {
-    gap: 12px;
+    gap: clamp(8px, 0.9vw, 12px);
   }
 
   .playButton,
   .moreButton {
-    min-height: 44px;
-    gap: 8px;
-    padding: 0 20px;
-    font-size: 14px;
+    min-height: clamp(36px, 3.2vw, 44px);
+    gap: clamp(6px, 0.6vw, 8px);
+    padding: 0 clamp(14px, 1.46vw, 20px);
+    font-size: clamp(12px, 1.03vw, 14px);
+  }
+
+  .playButton svg,
+  .moreButton svg {
+    width: clamp(15px, 1.32vw, 18px);
+    height: clamp(15px, 1.32vw, 18px);
   }
 
   .ageRating {
-    min-height: 32px;
-    padding: 0 12px;
-    font-size: 14px;
+    min-height: clamp(26px, 2.35vw, 32px);
+    padding: 0 clamp(10px, 0.9vw, 12px);
+    font-size: clamp(12px, 1.03vw, 14px);
   }
 
   .soundButton {
     right: 5.55%;
-    bottom: 80px;
-    width: 40px;
-    height: 40px;
+    bottom: clamp(48px, 5.85vw, 80px);
+    width: clamp(32px, 2.93vw, 40px);
+    height: clamp(32px, 2.93vw, 40px);
   }
 }

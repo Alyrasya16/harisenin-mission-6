@@ -2,7 +2,7 @@ import { useState } from "react"
 import HomeIcon from "../HomeIcon"
 import styles from "./HeroBanner.module.css"
 
-const HeroBanner = ({ data }) => {
+const HeroBanner = ({ data, onShowDetails }) => {
   const [isMuted, setIsMuted] = useState(true)
 
   return (
@@ -16,9 +16,9 @@ const HeroBanner = ({ data }) => {
         <p>{data.description}</p>
         <div className={styles.actions}>
           <button className={styles.playButton} type="button">
-            <HomeIcon name="play" size={18} /> Mulai
+            Mulai
           </button>
-          <button className={styles.moreButton} type="button">
+          <button className={styles.moreButton} type="button" onClick={onShowDetails}>
             <HomeIcon name="info" size={18} /> Selengkapnya
           </button>
           <span className={styles.ageRating}>{data.ageRating}</span>

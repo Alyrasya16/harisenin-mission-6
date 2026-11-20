@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { Link, useNavigate } from "react-router"
+import { Link, useLocation, useNavigate } from "react-router"
 import logoIcon from "../../../assets/icons/logo.png"
 import logoText from "../../../assets/icons/logo-text.png"
 import userIcon from "../../../assets/icons/user-icon.png"
@@ -19,6 +19,7 @@ const Navbar = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef(null)
+  const { pathname } = useLocation()
   const navigate = useNavigate()
   const resolvedProfileItems = profileItems ?? [
     { label: "Profil Saya", icon: "user" },
@@ -52,9 +53,19 @@ const Navbar = ({
           <img className={styles.desktopLogo} src={logoText} alt="CHILL" />
         </Link>
         <nav className={styles.navigation} aria-label="Navigasi utama">
-          {navigationItems.map(({ label, href }) => (
-            <a key={href} href={href}>{label}</a>
-          ))}
+          {navigationItems.map(({ label, href }) => {
+            const isActive = href.startsWith("/") && pathname === href
+            return (
+              <a
+                key={href}
+                className={isActive ? styles.active : undefined}
+                href={href}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {label}
+              </a>
+            )
+          })}
         </nav>
       </div>
 

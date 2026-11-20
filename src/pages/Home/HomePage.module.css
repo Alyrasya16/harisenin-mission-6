@@ -8,8 +8,21 @@
   padding-top: 20px;
 }
 
+.storageError {
+  margin: 0;
+  padding: 12px 20px;
+  background: #522927;
+  color: #fff;
+  font-size: 13px;
+}
+
 @media (min-width: 768px) {
   .rows {
     padding-top: 30px;
+  }
+
+  .storageError {
+    padding-right: 5.55%;
+    padding-left: 5.55%;
   }
 }

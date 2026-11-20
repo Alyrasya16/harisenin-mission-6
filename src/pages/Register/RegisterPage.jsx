@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router"
+import { NavLink, useNavigate } from "react-router"
 import AuthHeader from "../../components/auth/AuthHeader/AuthHeader"
 import AuthLayout from "../../components/auth/AuthLayout/AuthLayout"
 import Button from "../../components/ui/Button/Button"
@@ -64,9 +64,9 @@ const RegisterPage = () => {
           </div>
           <div className={styles.helperRow}>
             Sudah punya akun?{" "}
-            <Link className={styles.helperLink} to="/login">
+            <NavLink className={styles.helperLink} to="/login">
               Masuk
-            </Link>
+            </NavLink>
           </div>
           {error && (
             <p className={styles.error} role="alert">

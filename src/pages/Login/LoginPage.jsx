@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router"
+import { NavLink, useNavigate } from "react-router"
 import AuthHeader from "../../components/auth/AuthHeader/AuthHeader"
 import AuthLayout from "../../components/auth/AuthLayout/AuthLayout"
 import Button from "../../components/ui/Button/Button"
@@ -47,11 +47,15 @@ const LoginPage = () => {
           <div className={styles.helperRow}>
             <span>
               Belum punya akun?{" "}
-              <Link className={styles.helperLink} to="/register">
+              <NavLink className={styles.helperLink} to="/register">
                 Daftar
-              </Link>
+              </NavLink>
             </span>
-            <span className={styles.forgotText}>Lupa kata sandi?</span>
+            <span className={styles.forgotText}>
+              <NavLink className={styles.helperLink} to="/change-password">
+                Lupa kata sandi?
+              </NavLink>
+            </span>
           </div>
           <div className={styles.actions}>
             <Button type="submit">Masuk</Button>

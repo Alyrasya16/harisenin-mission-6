@@ -1,5 +1,6 @@
 .card {
   position: relative;
+  container-type: inline-size;
   flex: 0 0 auto;
   overflow: visible;
   border-radius: 8px;
@@ -15,6 +16,31 @@
   width: 100%;
   height: 100%;
   border-radius: inherit;
+}
+
+.posterTrigger {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: inherit;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.posterTrigger:focus-visible {
+  z-index: 3;
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.posterTrigger:disabled {
+  cursor: default;
 }
 
 .poster {
@@ -52,41 +78,66 @@
   height: 151px;
 }
 
+.grid {
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: 2 / 3;
+}
+
 .portrait {
   width: 95px;
   height: 145px;
 }
 
-.badge {
+.badgeGroup {
   position: absolute;
-  z-index: 2;
-  top: 8px;
-  left: 8px;
-  padding: 4px 7px;
+  z-index: 3;
+  top: clamp(8px, 6cqi, 12px);
+  left: clamp(8px, 6cqi, 12px);
+  right: clamp(8px, 6cqi, 12px);
+  display: flex;
+  align-items: center;
+  gap: clamp(6px, 5cqi, 14px);
+  justify-content: space-between;
+  white-space: nowrap;
+}
+
+.badge,
+.premiumBadge {
+  position: static;
+  padding: clamp(3px, 1.4cqi, 4px) clamp(3px, 1.8cqi, 5px);
   border-radius: 4px;
   color: #fff;
-  font-size: 9px;
+  font-size: clamp(6px, 4.2cqi, 10px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.15;
+  white-space: nowrap;
 }
 
 .episodeBadge {
   background: #0f1e93;
 }
 
+.premiumBadge {
+  background: #e6c500;
+  color: #242424;
+}
+
 .topBadge {
+  position: absolute;
   top: 0;
-  right: 7px;
+  right: clamp(5px, 4cqi, 14px);
   left: auto;
   display: flex;
-  width: 22px;
-  height: 46px;
+  width: clamp(18px, 19cqi, 38px);
+  height: clamp(36px, 32cqi, 64px);
   align-items: center;
   justify-content: center;
-  padding: 0 0 8px;
+  padding: 0 0 clamp(6px, 5.5cqi, 11px);
   background: #b71f1d;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%);
-  font-size: 7px;
+  font-size: clamp(7px, 5cqi, 10px);
   text-align: center;
 }
 
@@ -99,7 +150,7 @@
 }
 
 .topBadgeText strong {
-  font-size: 9px;
+  font-size: clamp(8px, 6.5cqi, 13px);
 }
 
 .landscapeDetails {
@@ -123,8 +174,7 @@
   white-space: nowrap;
 }
 
-.rating,
-.ratingPill {
+.rating {
   display: inline-flex;
   align-items: center;
   gap: 3px;
@@ -133,21 +183,9 @@
   white-space: nowrap;
 }
 
-.rating svg,
-.ratingPill svg {
-  color: #f5c518;
-  fill: #f5c518;
-}
-
-.ratingPill {
-  position: absolute;
-  right: 6px;
-  bottom: 7px;
-  z-index: 2;
-  padding: 3px 5px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.68);
-  font-size: 9px;
+.rating svg {
+  color: #fff;
+  fill: #fff;
 }
 
 .preview {
@@ -163,6 +201,7 @@
   border-radius: 9px;
   background: #22282a;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
   transform: translate(-50%, -50%);
 }
 
@@ -185,30 +224,64 @@
 .previewActions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   margin-bottom: 12px;
 }
 
-.previewActions button {
+.previewAction {
   display: grid;
   width: 34px;
   height: 34px;
+  flex: 0 0 auto;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.62);
   border-radius: 50%;
   background: transparent;
   color: #fff;
   cursor: pointer;
+  pointer-events: auto;
 }
 
-.previewActions .playAction {
+.previewAction:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.previewAction:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.playAction {
   border-color: #fff;
   background: #fff;
-  color: #16191a;
+  color: #181a1c;
 }
 
-.previewActions button:last-child {
+.saveAction {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.saveAction:hover {
+  border-color: #3254ff;
+  background: #3254ff;
+}
+
+.detailsAction {
   margin-left: auto;
+}
+
+.detailsAction:hover {
+  background: #323a3d;
+}
+
+.playMessage {
+  margin: 8px 0 0;
+  color: #e7e3fc;
+  font-size: 11px;
 }
 
 .metadata {
@@ -233,14 +306,19 @@
 
 @media (hover: hover) and (min-width: 768px) {
   .portrait:hover,
-  .portrait:focus-within {
+  .grid:hover,
+  .portrait:focus-within,
+  .grid:focus-within {
     z-index: 6;
   }
 
   .portrait:hover .preview,
-  .portrait:focus-within .preview {
+  .grid:hover .preview,
+  .portrait:focus-within .preview,
+  .grid:focus-within .preview {
     display: block;
   }
+
 }
 
 @media (min-width: 768px) {
@@ -254,42 +332,23 @@
     height: 365px;
   }
 
-  .badge {
-    top: 14px;
-    left: 14px;
-    padding: 7px 10px;
-    font-size: 12px;
+  .grid {
+    width: 100%;
+    height: auto;
   }
 
   .topBadge {
-    top: 0;
-    right: 14px;
-    left: auto;
-    width: 38px;
-    height: 64px;
-    padding: 0 0 11px;
-    font-size: 10px;
-  }
-
-  .topBadgeText strong {
-    font-size: 13px;
+    right: clamp(5px, 4cqi, 14px);
   }
 
   .landscapeDetails {
-    right: 16px;
-    bottom: 15px;
-    left: 16px;
+    right: clamp(10px, 6.8cqi, 16px);
+    bottom: clamp(8px, 6.4cqi, 15px);
+    left: clamp(10px, 6.8cqi, 16px);
   }
 
   .landscapeDetails h3 {
-    font-size: 16px;
-  }
-
-  .ratingPill {
-    right: 12px;
-    bottom: 12px;
-    padding: 5px 8px;
-    font-size: 12px;
+    font-size: clamp(13px, 6.8cqi, 16px);
   }
 
   .posterFallback strong {
